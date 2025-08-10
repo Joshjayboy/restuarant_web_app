@@ -285,7 +285,7 @@ const MealsWithModal = () => {
               </div>
 
               {/* Status Tag */}
-              <div className="px-3 pb-2">
+              <div className=" pb-2">
                 <span
                   className={`inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 ${
                     meal.open
