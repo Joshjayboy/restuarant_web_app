@@ -25,7 +25,7 @@ export default function RestaurantInputField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`bg-[#F5F5F5] text-[#9E9E9E] rounded-md p-2 w-full border ${
+        className={`bg-[#F5F5F5] text-black rounded-md p-2 focus:outline-none w-full border ${
           error ? "border-red-500" : "border-transparent"
         }`}
         aria-describedby={error ? `${id}-error` : undefined}
