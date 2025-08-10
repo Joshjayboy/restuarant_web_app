@@ -203,7 +203,7 @@ const MealsWithModal = () => {
           No items available
         </div>
       ) : (
-        <div className="px-[10%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[16px]">
+        <div className="px-4 sm:px-6 lg:px-[10%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {meals.map((meal, index) => (
             <div
               key={meal.id}
@@ -211,31 +211,37 @@ const MealsWithModal = () => {
                 animation: `slideUp 0.3s ease-out ${index * 0.05}s forwards`,
                 opacity: 0,
               }}
-              className="max-w-sm rounded overflow-hidden bg-white pb-[32px] transform transition-transform duration-150 ease-out hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-lg overflow-hidden bg-white pb-6 transform transition-transform duration-150 ease-out hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative w-[257px] h-[201px]">
+              {/* Image */}
+              <div className="relative w-full aspect-[4/3]">
                 <img
-                  className="w-full h-full object-cover rounded-[16px]"
+                  className="w-full h-full object-cover rounded-t-[16px]"
                   src={meal.avatar}
                   alt={meal.name}
                 />
-                <div className="absolute top-[14px] flex left-[14px] bg-[#F17228] bg-opacity-60 text-white px-[16px] py-[8px] rounded-[8px] text-sm font-semibold">
-                  <img src="/tag.svg" alt="" className="pr-[10px]" />$
+                <div className="absolute top-3 left-3 bg-[#F17228] bg-opacity-60 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center">
+                  <img src="/tag.svg" alt="" className="pr-2 w-4 h-4" />$
                   {meal.price}
                 </div>
               </div>
-              <div className="py-4 flex justify-between relative" ref={menuRef}>
-                <div className="flex">
+
+              {/* Meal Info */}
+              <div
+                className="py-4 flex justify-between items-start px-3"
+                ref={menuRef}
+              >
+                <div className="flex items-start">
                   <img
                     src={meal.logo}
-                    className="w-[54px] h-[54px] rounded-[8px]"
+                    className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] rounded-lg"
                     alt={meal.name}
                   />
-                  <div className="flex pl-[24px] inline">
-                    <div className="font-bold text-[18px] text-[#424242] mb-2">
+                  <div className="pl-4">
+                    <div className="font-bold text-lg sm:text-[18px] text-[#424242] leading-tight">
                       {meal.name}
                     </div>
-                    <p className="text-yellow-500 text-base">
+                    <p className="text-yellow-500 text-sm sm:text-base">
                       ⭐ {meal.rating}
                     </p>
                   </div>
@@ -246,7 +252,7 @@ const MealsWithModal = () => {
                   <img
                     src="/More.svg"
                     alt="more"
-                    className="cursor-pointer"
+                    className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6"
                     onClick={() =>
                       setOpenMenuId((prev) =>
                         prev === meal.id ? null : meal.id
@@ -277,7 +283,9 @@ const MealsWithModal = () => {
                   )}
                 </div>
               </div>
-              <div className="pb-2">
+
+              {/* Status Tag */}
+              <div className="px-3 pb-2">
                 <span
                   className={`inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 ${
                     meal.open
