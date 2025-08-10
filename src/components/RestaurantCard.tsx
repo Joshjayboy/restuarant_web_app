@@ -228,7 +228,7 @@ const MealsWithModal = () => {
 
               {/* Meal Info */}
               <div
-                className="py-4 flex justify-between items-start px-3"
+                className="py-4 flex justify-between items-start"
                 ref={menuRef}
               >
                 <div className="flex items-start">
